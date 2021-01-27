@@ -3,6 +3,9 @@
   justify-content: center;
   flex-direction: column;
 }
+.title {
+  text-align: center;
+}
 .total_restaurants {
   color: #009de0;
   margin-right: 1rem;

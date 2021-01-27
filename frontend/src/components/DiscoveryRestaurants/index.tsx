@@ -9,7 +9,7 @@ interface Props {
   allRestaurants: CategoryAndRestaurant[]
 }
 
-const DiscoveryResturants: FC<Props> = ({ allRestaurants }) => {
+const DiscoveryRestaurants: FC<Props> = ({ allRestaurants }) => {
   return (
     <>
       {allRestaurants.map(({ title, restaurants }) => {
@@ -18,33 +18,33 @@ const DiscoveryResturants: FC<Props> = ({ allRestaurants }) => {
             <div className={styles.title}>
               <h3>{title}</h3>
             </div>
-            <div data-resturant-id={title.toLowerCase().replace(' ', '-')} className={styles.resturants}>
-              {restaurants.map((resturant) => (
-                <div className={styles.resturant__card}>
-                  <div className={styles.resturant__image}>
-                    <Blurhash hash={resturant.blurhash} height={300} resolutionX={32} resolutionY={32} punch={1} style={{ width: '100%', minWidth: 300 }} />
+            <div data-restaurant-id={title.toLowerCase().replace(' ', '-')} className={styles.restaurants}>
+              {restaurants.map((restaurant) => (
+                <div className={styles.restaurant__card}>
+                  <div className={styles.restaurant__image}>
+                    <Blurhash hash={restaurant.blurhash} height={300} resolutionX={32} resolutionY={32} punch={1} style={{ width: '100%', minWidth: 300 }} />
                   </div>
-                  <div className={styles.resturant__info}>
-                    <p className={styles.resturant__name}>{resturant.name}</p>
+                  <div className={styles.restaurant__info}>
+                    <p className={styles.restaurant__name}>{restaurant.name}</p>
                   </div>
-                  <div className={styles.resturant__desc}>
-                    <div className={styles.resturant__currency}>€€ &nbsp;·&nbsp;</div>
+                  <div className={styles.restaurant__desc}>
+                    <div className={styles.restaurant__currency}>€€ &nbsp;·&nbsp;</div>
                     <div>
-                      {resturant.online ? (
+                      {restaurant.online ? (
                         <span style={{ color: 'green', fontSize: '1rem' }}>Open</span>
                       ) : (
                         <span style={{ color: 'red', fontSize: '1rem' }}>Closed</span>
                       )}
                     </div>
-                    <div className={styles.resturant__rating}>
+                    <div className={styles.restaurant__rating}>
                       <div className={styles.rating__icon}>
-                        {Number((resturant.popularity * 10).toFixed(1)) >= 8 ? (
+                        {Number((restaurant.popularity * 10).toFixed(1)) >= 8 ? (
                           <img className={styles.rating__emoji} src={excellent} alt="excellent" />
                         ) : (
                           <img className={styles.rating__emoji} src={good} alt="good" />
                         )}
                       </div>
-                      <p className={styles.rating__number}>{(resturant.popularity * 10).toFixed(1)}</p>
+                      <p className={styles.rating__number}>{(restaurant.popularity * 10).toFixed(1)}</p>
                     </div>
                   </div>
                 </div>
@@ -57,4 +57,4 @@ const DiscoveryResturants: FC<Props> = ({ allRestaurants }) => {
   )
 }
 
-export default DiscoveryResturants
+export default DiscoveryRestaurants
