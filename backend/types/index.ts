@@ -11,3 +11,7 @@ export interface CategoryAndRestaurants {
   title: string
   restaurants: Restaurant[]
 }
+
+export interface RestaurantsNotFound extends CategoryAndRestaurants {
+  message: string
+}

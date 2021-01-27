@@ -4,7 +4,7 @@
   "description": "wolt summer task(backend)",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "jest --detectOpenHandles",
     "dev": "nodemon index.ts"
   },
   "repository": {
@@ -26,7 +26,10 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "date-fns": "^2.16.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "supertest": "^6.1.2",
+    "ts-jest": "^26.4.4"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
@@ -41,17 +44,36 @@
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "nodemon": "^2.0.7",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "@types/supertest": "^2.0.10"
   },
   "eslintConfig": {
     "root": true,
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "ecmaVersion": 2020,
-        "sourceType": "module"
-      },
-      "extends": [
-        "plugin:@typescript-eslint/recommended"
-      ]
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended"
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/__tests__/*.+(ts|tsx|js)"
+    ]
   }
 }
