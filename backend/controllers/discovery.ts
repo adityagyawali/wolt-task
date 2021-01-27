@@ -17,7 +17,7 @@ router.get('/', (req: Request, res: Response) => {
   // find restaurants within 1.5km
   const allRestaurants: Restaurant[] = findRestaurantsBasedOnCoordinates(userLocation)
 
-  // if no resturants are found within 1.5km then send unavailable message
+  // if no restaurants are found within 1.5km then send unavailable message
   if (!allRestaurants.length) {
     return res.status(404).json({ message: 'We are currently unavailable at your location.' })
   }
@@ -31,12 +31,12 @@ router.get('/', (req: Request, res: Response) => {
 
   //new restaurants that were opened less than 4 months ago
   const newRestaurants: Restaurant[] = allRestaurants
-    .filter((resturant) => {
+    .filter((restaurant) => {
       const currentDate: Date = startOfToday()
-      const launchDate: Date = new Date(resturant.launch_date)
-      const totalMonthsResturantIsOpen = differenceInCalendarMonths(currentDate, launchDate)
-      if (totalMonthsResturantIsOpen <= 4) {
-        return resturant
+      const launchDate: Date = new Date(restaurant.launch_date)
+      const totalMonthsRestaurantIsOpen = differenceInCalendarMonths(currentDate, launchDate)
+      if (totalMonthsRestaurantIsOpen <= 4) {
+        return restaurant
       }
       return false
     })

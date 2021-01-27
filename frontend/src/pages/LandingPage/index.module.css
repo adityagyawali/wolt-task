@@ -1,0 +1,110 @@
+.landing__page {
+  display: flex;
+  background-image: url("../../assets/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 90px);
+}
+.user_location {
+  display: flex;
+}
+.location {
+  padding: 1rem 1.5rem;
+  color: #202125;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  border-radius: 8px;
+}
+.location_search {
+  padding: 1.25rem 2rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #009de0;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+.landing__page__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  color: #fff;
+  width: 400px;
+  max-width: 450px;
+}
+.landing__page__title {
+  position: relative;
+  height: 150px;
+}
+
+.title__content {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.active {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.6s linear 0.4s;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  position: absolute;
+  bottom: 0;
+}
+.landing__page__link {
+  width: 9rem;
+}
+.landing__page__button {
+  color: #fff;
+  width: 9rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: #009de0;
+  border-radius: 8px;
+  text-align: center;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms ease-out, color 150ms ease-out;
+  outline: none;
+}
+.landing__page__button:hover {
+  color: #fff;
+  background-color: #1fa9e4;
+}
+
+@media only screen and (max-width: 769px) {
+  .landing__page {
+    background-position: 90% center;
+  }
+  .landing__page__content {
+    color: #fff;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .landing__page__title {
+    height: 200px;
+  }
+  .title__content {
+    font-size: 1.3rem;
+  }
+  .landing__page__subtitle {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+@media only screen and (max-width: 589px) {
+  .landing__page {
+    background-position: 76% center;
+  }
+}

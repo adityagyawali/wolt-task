@@ -3,11 +3,11 @@ import { Restaurant } from '../types/index'
 
 // gets the distance(as a straight line) in km between two coordinates
 //source https://stackoverflow.com/questions/18883601/function-to-calculate-distance-between-two-coordinates
-export function getDistanceBetweenTwoCoordinates(userLocation: number[], resturantLocation: number[]): number {
+export function getDistanceBetweenTwoCoordinates(userLocation: number[], restaurantLocation: number[]): number {
   const lon1 = userLocation[0]
   const lat1 = userLocation[1]
-  const lon2 = resturantLocation[0]
-  const lat2 = resturantLocation[1]
+  const lon2 = restaurantLocation[0]
+  const lat2 = restaurantLocation[1]
   const R = 6371 // Radius of the earth in km
   const dLat = deg2rad(lat2 - lat1) // deg2rad below
   const dLon = deg2rad(lon2 - lon1)
@@ -25,27 +25,27 @@ function deg2rad(deg: number) {
 
 // get all the restaurants within 1.5km from user location
 export function findRestaurantsBasedOnCoordinates(userLocation: number[]): Restaurant[] | [] {
-  const restaurantsNearToUser = allRestaurants.restaurants.filter((resturant) => {
-    const distanceBetweenUserLocationAndResturant = getDistanceBetweenTwoCoordinates(userLocation, resturant.location)
-    if (distanceBetweenUserLocationAndResturant < 1.5) {
-      return resturant
+  const restaurantsNearToUser = allRestaurants.restaurants.filter((restaurant) => {
+    const distanceBetweenUserLocationAndRestaurant = getDistanceBetweenTwoCoordinates(userLocation, restaurant.location)
+    if (distanceBetweenUserLocationAndRestaurant < 1.5) {
+      return restaurant
     }
     return
   })
   return restaurantsNearToUser
 }
 
-// Resturant online: true takes precedence over online: false
+// Restaurant online: true takes precedence over online: false
 export function sortRestaurantsBasedOnAvailability(restaurants: Restaurant[]): Restaurant[] {
-  const offlineResturants = []
-  const onlineResturants = []
+  const offlineRestaurants = []
+  const onlineRestaurants = []
   for (let i = 0; i < restaurants.length; i++) {
     if (restaurants[i].online) {
-      onlineResturants.push(restaurants[i])
+      onlineRestaurants.push(restaurants[i])
     } else {
-      offlineResturants.push(restaurants[i])
+      offlineRestaurants.push(restaurants[i])
     }
   }
 
-  return [...onlineResturants, ...offlineResturants]
+  return [...onlineRestaurants, ...offlineRestaurants]
 }

@@ -1,0 +1,13 @@
+.discover_page {
+  max-width: 600px;
+  text-align: center;
+  margin: auto;
+}
+.discover_page .info {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.discover_page .address {
+  color: #009de0;
+  cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.restaurants__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.restaurants__link {
+  color: #009de0;
+  margin-right: 1rem;
+}
+.restaurants__carousel {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+.restaurant {
+  outline: none;
+}

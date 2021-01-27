@@ -20,17 +20,17 @@ describe('GET /discovery - a simple api endpoint', () => {
     const response = await api.get('/discovery?lat=60.1709&lon=24.941')
     const sections: CategoryAndRestaurants[] = response.body
     sections.forEach((section) => {
-      section.restaurants.forEach((resturant) => {
-        const distanceBetweenUserLocationAndResturant = getDistanceBetweenTwoCoordinates(
+      section.restaurants.forEach((restaurant) => {
+        const distanceBetweenUserLocationAndRestaurant = getDistanceBetweenTwoCoordinates(
           [24.941, 60.1709],
-          resturant.location,
+          restaurant.location,
         )
-        expect(distanceBetweenUserLocationAndResturant).toBeLessThan(1.5)
+        expect(distanceBetweenUserLocationAndRestaurant).toBeLessThan(1.5)
       })
     })
   })
 
-  test('Open restaurants (online=true) should have precedence over closed(online=false) even if the popularity of the closed resturant is greater than opened one ', async () => {
+  test('Open restaurants (online=true) should have precedence over closed(online=false) even if the popularity of the closed restaurant is greater than opened one ', async () => {
     const response = await api.get('/discovery?lat=60.1709&lon=24.941')
     const sections: CategoryAndRestaurants[] = response.body
     const popularRestaurants = sections.filter((section) => section.title === 'Popular Restaurants')[0].restaurants
@@ -60,12 +60,12 @@ describe('GET /discovery - a simple api endpoint', () => {
     const response = await api.get('/discovery?lat=60.1709&lon=24.941')
     const sections: CategoryAndRestaurants[] = response.body
     const newRestaurants = sections.filter((section) => section.title === 'New Restaurants')[0].restaurants
-    newRestaurants.forEach((resturant) => {
-      expect(differenceInCalendarMonths(new Date(resturant.launch_date), startOfToday())).toBeLessThanOrEqual(4)
+    newRestaurants.forEach((restaurant) => {
+      expect(differenceInCalendarMonths(new Date(restaurant.launch_date), startOfToday())).toBeLessThanOrEqual(4)
     })
   })
 
-  test('should not show any resturants if the user distance is more than 1.5km from resturant', async () => {
+  test('should not show any restaurants if the user distance is more than 1.5km from restaurant', async () => {
     const response = await api.get('/discovery?lat=51.509865&lon=-0.118092')
     const sections: RestaurantsNotFound = response.body
     expect(sections.message).toBe('We are currently unavailable at your location.')
