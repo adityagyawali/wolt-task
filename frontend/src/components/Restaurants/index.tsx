@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Restaurants: FC<Props> = ({ restaurantAndCategories }) => {
-  console.log({restaurantAndCategories})
+
   const settings = {
     arrows: true,
     infinite: true,

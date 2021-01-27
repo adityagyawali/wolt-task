@@ -7,10 +7,18 @@ import { CategoryAndRestaurant } from './types';
 import LandingPage from './pages/LandingPage';
 import NotFound from './pages/NotFound';
 import NavBar from './components/NavBar';
+import DiscoveryRestaurants from './components/DiscoveryResturants';
 
 const App: FC = () => {
   const [sections, setSections] = useState<CategoryAndRestaurant[]>([])
   const [loading, setLoading] = useState(true)
+  const [nearByResturants, setNearByResturants] = useState<CategoryAndRestaurant[]>([])
+  const [newResturants, setNewResturants] = useState<CategoryAndRestaurant[]>([])
+  const [popularResturants, setPopularResturants] = useState<CategoryAndRestaurant[]>([])
+
+  const filterResturants = (resturants: CategoryAndRestaurant[], category: string): CategoryAndRestaurant[] => {
+    return resturants.filter((resturant) => resturant.title === category)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +34,15 @@ const App: FC = () => {
     fetchData();
   }, []);
 
+  useEffect(()=> {
+    const filteredNearByResturants = filterResturants(sections, 'Nearby Restaurants')
+    const filteredNewResturants = filterResturants(sections, 'New Restaurants')
+    const filteredPopularResturants = filterResturants(sections, 'Popular Restaurants')
+    setNearByResturants(filteredNearByResturants)
+    setNewResturants(filteredNewResturants)
+    setPopularResturants(filteredPopularResturants)
+  } ,[sections])
+
   return (
     <BrowserRouter>
       <NavBar />
@@ -34,6 +51,15 @@ const App: FC = () => {
           <LandingPage />
         </Route>
         <div className="App">
+          <Route exact path='/nearby-restaurants'>
+            <DiscoveryRestaurants allRestaurants={nearByResturants}/>
+          </Route>
+          <Route exact path='/new-restaurants'>
+            <DiscoveryRestaurants allRestaurants={newResturants}/>
+          </Route>
+          <Route exact path='/popular-restaurants'>
+            <DiscoveryRestaurants allRestaurants={popularResturants}/>
+          </Route>
           <Route exact path='/restaurants'>
           {
             loading ? <h1>Loading...</h1> :
