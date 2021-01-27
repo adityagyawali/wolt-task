@@ -8,23 +8,20 @@ const LandingPage = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(index < titles.length - 1 ? index + 1 : 0);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [index, titles.length]);
-
+      setIndex(index < titles.length - 1 ? index + 1 : 0)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [index, titles.length])
 
   return (
     <div className={styles.landing__page}>
       <div className={styles.landing__page__content}>
         <div className={styles.landing__page__title}>
-          {
-            titles.map((title, idx) => (
-              <h1 key={title} className={`${styles.title__content}, ${idx === index ? styles.active : styles.hidden}`}>
-                {title}
-              </h1>
-            ))
-          }
+          {titles.map((title, idx) => (
+            <h1 key={title} className={`${styles.title__content}, ${idx === index ? styles.active : styles.hidden}`}>
+              {title}
+            </h1>
+          ))}
         </div>
         <p className={styles.landing__page__subtitle}>DISCOVER RESTAURANTS IN</p>
         <NavLink className={styles.landing__page__link} to="/restaurants">

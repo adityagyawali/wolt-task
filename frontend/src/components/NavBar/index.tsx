@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/wolt_logo_black.svg'
 import user from '../../assets/user.svg'
-import styles from  './index.module.css'
+import styles from './index.module.css'
 
 const NavBar = () => {
   return (

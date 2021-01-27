@@ -1,6 +1,6 @@
 import React from 'react'
 import no_delivery from '../../assets/no_location_found.svg'
-import styles from  './index.module.css'
+import styles from './index.module.css'
 
 const NotFound = () => {
   return (
