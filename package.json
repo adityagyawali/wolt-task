@@ -1,0 +1,28 @@
+{
+  "name": "wolt",
+  "version": "1.0.0",
+  "description": "Wolt backend and frontend task 2021",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd backend && tsc && node ./dist/index.js",
+    "build": "rm -rf build && cd frontend && npm run build && cp -r build ../backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adityagyawali/wolt-task.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "Typescript",
+    "Heorku",
+    "React",
+    "Jest"
+  ],
+  "author": "Aditya Gyawali <gyawali_aditya@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adityagyawali/wolt-task/issues"
+  },
+  "homepage": "https://github.com/adityagyawali/wolt-task#readme"
+}
