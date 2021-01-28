@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cd backend && node ./dist/index.js",
-    "build": "rm -rf build && cd frontend && npm run build && cp -r build ../backend"
+    "post:build": "rm -rf build && cd frontend && npm run build && cp -r build ../backend"
   },
   "repository": {
     "type": "git",
