@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import './App.css'
 import Restaurants from './components/Restaurants'
@@ -11,7 +11,7 @@ import DiscoveryRestaurants from './components/DiscoveryRestaurants'
 
 const App: FC = () => {
   const [sections, setSections] = useState<CategoryAndRestaurant[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
   const [nearByResturants, setNearByResturants] = useState<CategoryAndRestaurant[]>([])
   const [newResturants, setNewResturants] = useState<CategoryAndRestaurant[]>([])
   const [popularResturants, setPopularResturants] = useState<CategoryAndRestaurant[]>([])
@@ -23,7 +23,7 @@ const App: FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get<CategoryAndRestaurant[]>('/discovery?lat=60.1709&lon=24.941')
+        const { data } = await axios.get<CategoryAndRestaurant[]>('http://localhost:8000/discovery?lat=60.1709&lon=24.941')
         setSections(data)
         setLoading(false)
       } catch (error) {
@@ -44,7 +44,7 @@ const App: FC = () => {
   }, [sections])
 
   return (
-    <BrowserRouter>
+    <Router>
       <NavBar />
       <Switch>
         <Route exact path="/">
@@ -61,12 +61,12 @@ const App: FC = () => {
             <DiscoveryRestaurants allRestaurants={popularResturants} />
           </Route>
           <Route exact path="/restaurants">
-            {loading ? <h1>Loading...</h1> : <Restaurants restaurantAndCategories={sections} />}
+            {loading ? <h1>Loading...</h1> : <Restaurants sections={sections} />}
           </Route>
         </div>
         <Route component={NotFound} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   )
 }
 

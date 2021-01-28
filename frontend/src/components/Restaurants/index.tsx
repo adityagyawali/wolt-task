@@ -8,10 +8,10 @@ import { CategoryAndRestaurant } from '../../types/index'
 import Restaurant from '../Restaurant'
 
 interface Props {
-  restaurantAndCategories: CategoryAndRestaurant[]
+  sections: CategoryAndRestaurant[]
 }
 
-const Restaurants: FC<Props> = ({ restaurantAndCategories }) => {
+const Restaurants: FC<Props> = ({ sections }) => {
   const settings = {
     arrows: true,
     infinite: true,
@@ -47,17 +47,17 @@ const Restaurants: FC<Props> = ({ restaurantAndCategories }) => {
   }
   return (
     <div className={styles.restaurants__container}>
-      {restaurantAndCategories.map(({ title, restaurants }) => {
+      {sections.map(({ title, restaurants }) => {
         return (
           <div className={styles.restaurants} key={title}>
             <div className={styles.restaurants__header}>
               <h3 className={styles.restaurants__title}>{title}</h3>
               <Link className={styles.restaurants__link} to={title.toLowerCase().replace(' ', '-')}>
-                <p>All({restaurants.length})</p>
+                <p className={styles.restaturants__total}>All({restaurants.length})</p>
               </Link>
             </div>
             <Slider {...settings} className={styles.restaurants__carousel}>
-              {restaurants.map((restaurant, i) => (
+              {restaurants.map((restaurant) => (
                 <div key={restaurant.name} className={styles.restaurant}>
                   <Restaurant restaurant={restaurant} />
                 </div>
