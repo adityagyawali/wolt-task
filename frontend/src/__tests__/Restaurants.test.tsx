@@ -73,8 +73,8 @@ describe('Restaurants component and infinite carousel', () => {
       </Router>,
     )
 
-    const backButton = container.querySelector('.slick-next') as HTMLButtonElement
-    fireEvent.click(backButton)
+    const nextButton = container.querySelector('.slick-next') as HTMLButtonElement
+    fireEvent.click(nextButton)
 
     const activeSliderElement1 = container.querySelector('.slick-active .restaurant__name')
     expect(activeSliderElement1).toHaveTextContent(/Salt/)
