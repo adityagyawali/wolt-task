@@ -25,13 +25,13 @@ git clone  https://github.com/adityagyawali/wolt-task.git
     npm i
   ```
 
-  1. Install project dependencies on frontend
+  2. Install project dependencies on frontend
 
   ```bash
     npm run frontend:install
   ```
 
-  1. Compile and launch both backend and frontend on local environment
+#### 3. Compile and launch
 
   ```bash
     npm run build:ui
@@ -55,7 +55,7 @@ git clone  https://github.com/adityagyawali/wolt-task.git
   cd frontend
   ```
 
-  1. Run tests
+  2. Run tests
 
   ```bash
     npm run test
