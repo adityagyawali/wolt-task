@@ -1,4 +1,4 @@
-import allRestaurants from '../utils/restaurants.json'
+import allRestaurants from './restaurants.json'
 import { Restaurant } from '../types/index'
 
 // gets the distance(as a straight line) in km between two coordinates

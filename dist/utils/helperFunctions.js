@@ -11,7 +11,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortRestaurantsBasedOnAvailability = exports.findRestaurantsBasedOnCoordinates = exports.getDistanceBetweenTwoCoordinates = void 0;
-var restaurants_json_1 = __importDefault(require("../utils/restaurants.json"));
+var restaurants_json_1 = __importDefault(require("./restaurants.json"));
 // gets the distance(as a straight line) in km between two coordinates
 //source https://stackoverflow.com/questions/18883601/function-to-calculate-distance-between-two-coordinates
 function getDistanceBetweenTwoCoordinates(userLocation, restaurantLocation) {
