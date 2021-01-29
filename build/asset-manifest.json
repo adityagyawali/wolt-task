@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5d92918e.chunk.css",
+    "main.js": "/static/js/main.252cb174.chunk.js",
+    "main.js.map": "/static/js/main.252cb174.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.41a6d3c6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.41a6d3c6.js.map",
+    "static/css/2.165ff965.chunk.css": "/static/css/2.165ff965.chunk.css",
+    "static/js/2.a8edbc18.chunk.js": "/static/js/2.a8edbc18.chunk.js",
+    "static/js/2.a8edbc18.chunk.js.map": "/static/js/2.a8edbc18.chunk.js.map",
+    "static/js/3.b7ed19e5.chunk.js": "/static/js/3.b7ed19e5.chunk.js",
+    "static/js/3.b7ed19e5.chunk.js.map": "/static/js/3.b7ed19e5.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.165ff965.chunk.css.map": "/static/css/2.165ff965.chunk.css.map",
+    "static/css/main.5d92918e.chunk.css.map": "/static/css/main.5d92918e.chunk.css.map",
+    "static/js/2.a8edbc18.chunk.js.LICENSE.txt": "/static/js/2.a8edbc18.chunk.js.LICENSE.txt",
+    "static/media/excellent_emoji.022b75f5.svg": "/static/media/excellent_emoji.022b75f5.svg",
+    "static/media/good_emoji.2d3854fd.svg": "/static/media/good_emoji.2d3854fd.svg",
+    "static/media/index.module.css": "/static/media/hero.f92f7222.jpg",
+    "static/media/no_location_found.e58be91c.svg": "/static/media/no_location_found.e58be91c.svg",
+    "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf",
+    "static/media/user.f58d0f0d.svg": "/static/media/user.f58d0f0d.svg",
+    "static/media/wolt_logo_black.64e7d03e.svg": "/static/media/wolt_logo_black.64e7d03e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.41a6d3c6.js",
+    "static/css/2.165ff965.chunk.css",
+    "static/js/2.a8edbc18.chunk.js",
+    "static/css/main.5d92918e.chunk.css",
+    "static/js/main.252cb174.chunk.js"
+  ]
+}
