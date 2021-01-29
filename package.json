@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jest --detectOpenHandles",
     "dev": "nodemon index.ts",
-    "dev:build": "tsc",
+    "dev2": "tsc",
     "start": "node dist/index.js",
-    "post:build": "rm -rf build && cd frontend && npm run build && cp -r build ../",
+    "build:ui": "npm run dev2 && rm -rf build && cd frontend && npm run build && cp -r build ../",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "repository": {
