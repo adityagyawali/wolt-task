@@ -15,7 +15,7 @@ app.use(express.static('build'))
 app.use('/discovery', discovery)
 
 app.get('*', (_: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, 'index.html'))
 })
 
 export default app
