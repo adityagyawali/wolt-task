@@ -31,10 +31,16 @@ git clone  https://github.com/adityagyawali/wolt-task.git
     npm run frontend:install
   ```
 
-#### 3. Compile and launch
+#### 3. Compile and serve frontend build for backend
 
   ```bash
     npm run build:ui
+  ```
+
+#### 3. Launch
+
+  ```bash
+    npm start
   ```
 
 #### 4. Navigate to [http://localhost:8000](http://localhost:8000)
