@@ -16,6 +16,6 @@ app.use(body_parser_1.default.json());
 app.use(express_1.default.static('build'));
 app.use('/discovery', discovery_1.default);
 app.get('*', function (_, res) {
-    res.sendFile(path_1.default.join(__dirname, 'index.html'));
+    res.sendFile(path_1.default.join(__dirname, '..', 'build', 'index.html'));
 });
 exports.default = app;

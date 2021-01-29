@@ -64,7 +64,11 @@
     ]
   },
   "jest": {
-    "modulePathIgnorePatterns": ["frontend","dist", "build"],
+    "modulePathIgnorePatterns": [
+      "frontend",
+      "dist",
+      "build"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
