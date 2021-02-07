@@ -52,11 +52,11 @@ const App: FC = () => {
   return (
     <>
       <NavBar />
-      <Route exact path="/">
-        <LandingPage />
-      </Route>
       <div className="App">
         <Switch>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
           <Route exact path="/nearby-restaurants">
             <DiscoveryRestaurants allRestaurants={nearByResturants} />
           </Route>
