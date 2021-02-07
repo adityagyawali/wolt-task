@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import './App.css'
 import Restaurants from './components/Restaurants'
@@ -27,7 +27,10 @@ const App: FC = () => {
         setSections(data)
         setLoading(false)
       } catch (error) {
-        console.error(error)
+        console.log('running', error.response.status)
+        if (error.response.status === 404) {
+          return setLoading(true)
+        }
       }
     }
 
@@ -43,14 +46,17 @@ const App: FC = () => {
     setPopularResturants(filteredPopularResturants)
   }, [sections])
 
+  if (loading) {
+    return <h1>Loading ....</h1>
+  }
   return (
-    <Router>
+    <>
       <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
-        <div className="App">
+      <Route exact path="/">
+        <LandingPage />
+      </Route>
+      <div className="App">
+        <Switch>
           <Route exact path="/nearby-restaurants">
             <DiscoveryRestaurants allRestaurants={nearByResturants} />
           </Route>
@@ -61,12 +67,12 @@ const App: FC = () => {
             <DiscoveryRestaurants allRestaurants={popularResturants} />
           </Route>
           <Route exact path="/restaurants">
-            {loading ? <h1>Loading...</h1> : <Restaurants sections={sections} />}
+            <Restaurants sections={sections} />
           </Route>
-        </div>
-        <Route component={NotFound} />
-      </Switch>
-    </Router>
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+    </>
   )
 }
 

@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
     var allRestaurants = helperFunctions_1.findRestaurantsBasedOnCoordinates(userLocation);
     // if no restaurants are found within 1.5km then send unavailable message
     if (!allRestaurants.length) {
-        return res.status(404).json({ message: 'We are currently unavailable at your location.' });
+        return res.status(404).json('We are currently unavailable at your location.');
     }
     // sort restaurants(max 10) based on popularity when the total restaurants with 1.5km
     var popularRestaurants = allRestaurants
