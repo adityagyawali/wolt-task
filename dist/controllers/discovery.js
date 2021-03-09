@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var date_fns_1 = require("date-fns");
 var helperFunctions_1 = require("../utils/helperFunctions");
+var restaurants_json_1 = __importDefault(require("../utils/restaurants.json"));
 var router = express_1.default.Router();
 router.get('/', function (req, res) {
     var lon = Number(req.query.lon);
@@ -15,7 +16,7 @@ router.get('/', function (req, res) {
     var allRestaurants = helperFunctions_1.findRestaurantsBasedOnCoordinates(userLocation);
     // if no restaurants are found within 1.5km then send unavailable message
     if (!allRestaurants.length) {
-        return res.status(404).json('We are currently unavailable at your location.');
+        return res.status(404).json({ message: 'We are currently unavailable at your location.' });
     }
     // sort restaurants(max 10) based on popularity when the total restaurants with 1.5km
     var popularRestaurants = allRestaurants
@@ -60,5 +61,16 @@ router.get('/', function (req, res) {
         },
     ];
     res.status(200).json(sections);
+});
+router.get('/:name', function (req, res) {
+    var name = req.params.name;
+    console.log('params stuff', req.params);
+    var restaurant = restaurants_json_1.default.restaurants.find(function (restaurant) { return restaurant.name.toLocaleLowerCase().replace(/\s+/g, '-') === name; });
+    if (!restaurant) {
+        res.status(404);
+    }
+    else {
+        res.status(200).json(restaurant);
+    }
 });
 exports.default = router;

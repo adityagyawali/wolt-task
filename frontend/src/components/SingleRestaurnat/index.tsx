@@ -1,19 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import axios from 'axios'
 import { RestaurantInfo } from '../../types'
 const SingleRestaurant = () => {
+  const [singleRestaurant, setSingleRestaurant] = useState<RestaurantInfo>()
   const { name } = useParams<{ name: string }>()
   console.log({ name })
   useEffect(() => {
     const singleRestaurant = async () => {
-      const { data } = await axios.get<RestaurantInfo>(`http://localhost:8000/discovery/${name}`)
-      console.log({ data })
+      try {
+        const { data } = await axios.get<RestaurantInfo>(`/discovery/${name}`)
+        setSingleRestaurant(data)
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     void singleRestaurant()
-  })
-  return <div>Single Restaurant</div>
+  }, [name])
+  return <h1>{singleRestaurant?.name}</h1>
 }
 
 export default SingleRestaurant

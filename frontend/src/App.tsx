@@ -24,7 +24,7 @@ const App: FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get<CategoryAndRestaurant[]>('http://localhost:8000/discovery?lat=60.1709&lon=24.941')
+        const { data } = await axios.get<CategoryAndRestaurant[]>('/discovery?lat=60.1709&lon=24.941')
         setSections(data)
         setLoading(false)
       } catch (error) {
