@@ -58,9 +58,11 @@ const Restaurants: FC<Props> = ({ sections }) => {
             </div>
             <Slider {...settings} className={styles.restaurants__carousel}>
               {restaurants.map((restaurant) => (
-                <div key={restaurant.name} className={styles.restaurant}>
-                  <Restaurant restaurant={restaurant} />
-                </div>
+                <Link to={`/restaurant/${restaurant.name.toLocaleLowerCase().replaceAll(' ', '-')}`}>
+                  <div key={restaurant.name} className={styles.restaurant}>
+                    <Restaurant restaurant={restaurant} />
+                  </div>
+                </Link>
               ))}
             </Slider>
           </div>

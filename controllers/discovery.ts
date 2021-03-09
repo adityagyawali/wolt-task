@@ -7,6 +7,7 @@ import {
   sortRestaurantsBasedOnAvailability,
 } from '../utils/helperFunctions'
 
+import data from '../utils/restaurants.json'
 const router = express.Router()
 
 router.get('/', (req: Request, res: Response) => {
@@ -71,6 +72,19 @@ router.get('/', (req: Request, res: Response) => {
   ]
 
   res.status(200).json(sections)
+})
+
+router.get('/:name', (req: Request, res: Response) => {
+  const { name } = req.params
+  console.log('params stuff', req.params)
+  const restaurant = data.restaurants.find(
+    (restaurant) => restaurant.name.toLocaleLowerCase().replace(/\s+/g, '-') === name,
+  )
+  if (!restaurant) {
+    res.status(404)
+  } else {
+    res.status(200).json(restaurant)
+  }
 })
 
 export default router
